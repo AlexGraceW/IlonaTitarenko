@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "bgImage": "/assets/img/contacts/contact-hero.avif",
+    "title": "Contact",
+    "subtitle": "Tell me about your project — I’ll reply within 24 hours"
+  },
+  "form": {
+    "mailto": "hello@example.com"
+  }
+}

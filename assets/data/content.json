@@ -1,0 +1,64 @@
+{
+  "site": {
+    "footerText": "© 2026 Portfolio"
+  },
+  "home": {
+    "hero": {
+      "bgImage": "/assets/img/home/hero.avif",
+      "avatarImage": "/assets/img/home/avatar.avif",
+      "title": "Ilona Titarenko",
+      "subtitle": "Story-driven editing for brands, artists, and documentaries"
+    },
+    "intro": {
+      "videoTitle": "Intro video",
+      "videoEmbedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "videoMp4Url": "",
+      "videoPosterUrl": "",
+      "aboutTitle": "About",
+      "aboutText": [
+        "Меня зовут Cat, я режиссёр и фотограф. Работаю на стыке визуального сторителлинга, портрета и видео.",
+        "Этот проект — мой персональный портфолио-сайт, где собраны избранные работы, визуальные серии и эксперименты."
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Visual Stories",
+        "text": [
+          "Серия визуальных историй, объединённых настроением и драматургией кадра.",
+          "Работа с естественным светом, композицией и движением."
+        ],
+        "images": [
+          "/assets/img/sections/section1/1.jpg",
+          "/assets/img/sections/section1/2.jpg",
+          "/assets/img/sections/section1/3.jpg"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Portraits",
+        "text": [
+          "Портретные съёмки с акцентом на характер и эмоцию.",
+          "Минимализм, внимание к деталям и свету."
+        ],
+        "images": [
+          "/assets/img/sections/section2/1.jpg",
+          "/assets/img/sections/section2/2.jpg",
+          "/assets/img/sections/section2/3.jpg"
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "Motion & Video",
+        "text": [
+          "Видео-работы: клипы, арт-видео и короткие формы.",
+          "Эксперименты с ритмом, монтажом и визуальной подачей."
+        ],
+        "images": [
+          "/assets/img/sections/section3/1.jpg",
+          "/assets/img/sections/section3/2.jpg"
+        ]
+      }
+    ]
+  }
+}

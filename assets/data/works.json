@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "bgImage": "/assets/img/works/works-hero.avif",
+    "title": "My Works",
+    "subtitle": "Selected projects and edits"
+  },
+  "videos": [
+    {
+      "id": "w1",
+      "title": "New work",
+      "subtitle": "Short description...",
+      "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    {
+      "id": "w2",
+      "title": "New work",
+      "subtitle": "Short description...",
+      "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    {
+      "id": "w3",
+      "title": "New work",
+      "subtitle": "Short description...",
+      "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    {
+      "id": "w4",
+      "title": "New work",
+      "subtitle": "Short description...",
+      "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    {
+      "id": "w5",
+      "title": "New work",
+      "subtitle": "Short description...",
+      "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    {
+      "id": "w6",
+      "title": "New work",
+      "subtitle": "Short description...",
+      "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    }
+  ]
+}
