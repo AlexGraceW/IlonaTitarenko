@@ -2,7 +2,7 @@
 (function init_index_content() {
   "use strict";
 
-  const CONTENT_URL = "/assets/data/content.json";
+  const CONTENT_URL = "assets/data/content.json";
 
   function escape_html(value) {
     return String(value)

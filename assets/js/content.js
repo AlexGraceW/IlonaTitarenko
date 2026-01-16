@@ -9,8 +9,8 @@ async function load_json(path) {
 
 async function load_content() {
   const [content, works] = await Promise.all([
-    load_json("/assets/data/content.json"),
-    load_json("/assets/data/works.json")
+    load_json("assets/data/content.json"),
+    load_json("assets/data/works.json")
   ]);
 
   const footer = document.querySelector("#footer-text");

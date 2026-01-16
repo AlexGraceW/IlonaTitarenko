@@ -1,6 +1,6 @@
 {
   "hero": {
-    "bgImage": "/assets/img/works/works-hero.avif",
+    "bgImage": "assets/img/works/works-hero.avif",
     "title": "My Works",
     "subtitle": "Selected projects and edits"
   },

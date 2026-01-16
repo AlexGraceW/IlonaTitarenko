@@ -4,8 +4,8 @@
   },
   "home": {
     "hero": {
-      "bgImage": "/assets/img/home/hero.avif",
-      "avatarImage": "/assets/img/home/avatar.avif",
+      "bgImage": "assets/img/home/hero.avif",
+      "avatarImage": "assets/img/home/avatar.avif",
       "title": "Ilona Titarenko",
       "subtitle": "Story-driven editing for brands, artists, and documentaries"
     },
@@ -29,9 +29,9 @@
           "Работа с естественным светом, композицией и движением."
         ],
         "images": [
-          "/assets/img/sections/section1/1.jpg",
-          "/assets/img/sections/section1/2.jpg",
-          "/assets/img/sections/section1/3.jpg"
+          "assets/img/sections/section1/1.jpg",
+          "assets/img/sections/section1/2.jpg",
+          "assets/img/sections/section1/3.jpg"
         ]
       },
       {
@@ -42,9 +42,9 @@
           "Минимализм, внимание к деталям и свету."
         ],
         "images": [
-          "/assets/img/sections/section2/1.jpg",
-          "/assets/img/sections/section2/2.jpg",
-          "/assets/img/sections/section2/3.jpg"
+          "assets/img/sections/section2/1.jpg",
+          "assets/img/sections/section2/2.jpg",
+          "assets/img/sections/section2/3.jpg"
         ]
       },
       {
@@ -55,8 +55,8 @@
           "Эксперименты с ритмом, монтажом и визуальной подачей."
         ],
         "images": [
-          "/assets/img/sections/section3/1.jpg",
-          "/assets/img/sections/section3/2.jpg"
+          "assets/img/sections/section3/1.jpg",
+          "assets/img/sections/section3/2.jpg"
         ]
       }
     ]
