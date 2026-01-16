@@ -2,7 +2,7 @@
 (function init_works_page() {
   "use strict";
 
-  const CONTENT_URL = "../assets/data/works.json";
+  const CONTENT_URL = "assets/data/works.json";
 
   function escape_html(value) {
     return String(value)

@@ -1,44 +1,38 @@
-<!-- contacts/index.html -->
+<!-- works/index.html -->
 <!doctype html>
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contact — Portfolio</title>
+    <title>My Works — Portfolio</title>
 
-    <!-- ✅ В подпапке contacts/ нужен выход на уровень выше -->
-    <link rel="stylesheet" href="../assets/css/reset.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
   </head>
 
   <body>
     <!-- Header -->
     <header class="site-header">
       <div class="container header-inner header-inner--works">
-        <a class="logo logo--works" href="../">Portfolio</a>
+        <a class="logo logo--works" href="/">Portfolio</a>
 
         <nav class="nav nav--works">
-          <a class="nav-link nav-pill" href="../">Home</a>
-          <!-- ✅ выход на уровень выше -->
-          <a class="nav-link nav-pill" href="../works/">My Works</a>
-          <!-- ✅ текущая страница -->
-          <a class="nav-link nav-pill is-active" href="./">Contact</a>
+          <a class="nav-link nav-pill" href="/">Home</a>
+          <a class="nav-link nav-pill is-active" href="works/">My Works</a>
+          <a class="nav-link nav-pill" href="contacts/">Contact</a>
         </nav>
       </div>
     </header>
 
     <main>
       <!-- Hero banner -->
-      <section class="hero hero--contacts">
-        <div id="contact-hero-bg" class="hero-bg" aria-hidden="true"></div>
+      <section class="hero hero--works">
+        <div id="works-hero-bg" class="hero-bg" aria-hidden="true"></div>
 
-        <div class="container hero-inner hero-inner--contacts">
-          <div class="contact-hero-content">
-            <h1 id="contact-hero-title" class="hero-title hero-title--contacts"></h1>
-            <p
-              id="contact-hero-subtitle"
-              class="hero-subtitle hero-subtitle--contacts"
-            ></p>
+        <div class="container hero-inner hero-inner--works">
+          <div class="works-hero-content">
+            <h1 id="works-hero-title" class="hero-title hero-title--works"></h1>
+            <p id="works-hero-subtitle" class="hero-subtitle hero-subtitle--works"></p>
           </div>
         </div>
       </section>
@@ -46,58 +40,8 @@
       <div class="container">
         <hr class="divider" />
 
-        <section class="contact-section">
-          <div class="contact-grid">
-            <div class="contact-card contact-form-card">
-              <h2 class="contact-card-title">Message</h2>
-
-              <form
-                class="contact-form"
-                action="mailto:hello@example.com"
-                method="post"
-                enctype="text/plain"
-              >
-                <label class="contact-field">
-                  <span class="contact-label">Name</span>
-                  <input
-                    class="contact-input"
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                  />
-                </label>
-
-                <label class="contact-field">
-                  <span class="contact-label">Email</span>
-                  <input
-                    class="contact-input"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                  />
-                </label>
-
-                <label class="contact-field">
-                  <span class="contact-label">Message</span>
-                  <textarea
-                    class="contact-textarea"
-                    name="message"
-                    rows="4"
-                    placeholder="Message"
-                  ></textarea>
-                </label>
-
-                <button class="contact-submit" type="submit">Send message</button>
-              </form>
-            </div>
-
-            <div class="contact-card contact-info-card">
-              <h2 class="contact-card-title">Contact</h2>
-              <p class="contact-info-text">
-                For inquiries, collaborations, or general questions.
-              </p>
-            </div>
-          </div>
+        <section class="works-section">
+          <div id="works-grid" class="works-grid"></div>
         </section>
       </div>
     </main>
@@ -126,8 +70,7 @@
                 Available for remote projects and on-site productions in the US.
               </div>
               <div class="footer-cta-actions">
-                <!-- ✅ текущая страница -->
-                <a class="footer-cta-link" href="./">Get in touch</a>
+                <a class="footer-cta-link" href="contacts/">Get in touch</a>
                 <a class="footer-cta-link" href="mailto:hello@example.com">Email</a>
               </div>
             </div>
@@ -144,13 +87,13 @@
             >
               <img
                 class="footer-social-icon-img"
-                src="../assets/img/social/instagram-icon.png"
+                src="assets/img/social/instagram-icon.png"
                 alt=""
                 aria-hidden="true"
               />
               <img
                 class="footer-social-name-img"
-                src="../assets/img/social/instagram-name.png"
+                src="assets/img/social/instagram-name.png"
                 alt="Instagram"
               />
             </a>
@@ -163,13 +106,13 @@
             >
               <img
                 class="footer-social-icon-img"
-                src="../assets/img/social/vimeo-icon.png"
+                src="assets/img/social/vimeo-icon.png"
                 alt=""
                 aria-hidden="true"
               />
               <img
                 class="footer-social-name-img"
-                src="../assets/img/social/vimeo-name.png"
+                src="assets/img/social/vimeo-name.png"
                 alt="Vimeo"
               />
             </a>
@@ -182,13 +125,13 @@
             >
               <img
                 class="footer-social-icon-img"
-                src="../assets/img/social/youtube-icon.png"
+                src="assets/img/social/youtube-icon.png"
                 alt=""
                 aria-hidden="true"
               />
               <img
                 class="footer-social-name-img"
-                src="../assets/img/social/youtube-name.png"
+                src="assets/img/social/youtube-name.png"
                 alt="YouTube"
               />
             </a>
@@ -201,13 +144,13 @@
             >
               <img
                 class="footer-social-icon-img"
-                src="../assets/img/social/linkedin-icon.png"
+                src="assets/img/social/linkedin-icon.png"
                 alt=""
                 aria-hidden="true"
               />
               <img
                 class="footer-social-name-img"
-                src="../assets/img/social/linkedin-name.png"
+                src="assets/img/social/linkedin-name.png"
                 alt="LinkedIn"
               />
             </a>
@@ -219,9 +162,7 @@
               <span class="footer-dot">•</span>
               <span>+1 (213) 555-1234</span>
               <span class="footer-dot">•</span>
-              <a class="footer-email" href="mailto:hello@example.com"
-                >hello@example.com</a
-              >
+              <a class="footer-email" href="mailto:hello@example.com">hello@example.com</a>
             </div>
 
             <div class="footer-copy">© 2026 Portfolio</div>
@@ -230,7 +171,6 @@
       </div>
     </footer>
 
-    <!-- ✅ В подпапке contacts/ нужен выход на уровень выше -->
-    <script defer src="../assets/js/contacts-content.js"></script>
+    <script defer src="assets/js/works-content.js"></script>
   </body>
 </html>

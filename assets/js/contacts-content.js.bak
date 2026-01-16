@@ -2,7 +2,7 @@
 (function init_contacts_page() {
   "use strict";
 
-  const CONTENT_URL = "../assets/data/contacts.json";
+  const CONTENT_URL = "assets/data/contacts.json";
 
   async function load_json(path) {
     const response = await fetch(path, { cache: "no-cache" });
