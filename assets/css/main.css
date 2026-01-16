@@ -100,12 +100,7 @@ body {
   inset: 0;
   z-index: 1;
   pointer-events: none !important;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, var(--hero-overlay-left)) 5%,
-    rgba(0, 0, 0, var(--hero-overlay-mid)) 20%,
-    rgba(0, 0, 0, var(--hero-overlay-right)) 25%
-  );
+  
 }
 
 .hero-inner {
@@ -193,7 +188,7 @@ body {
   opacity: 0.85;
 }
 
-/* ===== Per-page hero overrides ===== */
+/* ===== Per-page hero overrides ===== 
 .hero--home {
   --hero-min-height: 260px;
   --hero-bg-position: center;
@@ -207,7 +202,7 @@ body {
 .hero--contacts {
   --hero-min-height: 260px;
   --hero-bg-position: 35% 70%;
-}
+}*/
 
 /* ===== Works/Contacts hero layout (NO avatar, left aligned) ===== */
 .hero-inner--works,
@@ -1133,3 +1128,35 @@ body {
     height: 100px;
   }
 }
+/* ===== FORCE MOBILE HERO (250px + full image) ===== */
+@media (max-width: 520px) {
+
+  /* Home / Works / Contacts: всё, что похоже на hero */
+  section.hero,
+  section.hero.hero--home,
+  section.hero.hero--works,
+  section.hero.hero--contacts {
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+    overflow: hidden !important;
+  }
+
+  /* если внутри есть padding/контент, он часто раздувает высоту */
+  section.hero .hero-inner {
+    height: 100% !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    align-items: center !important;
+  }
+
+  /* картинка фона должна влезать целиком */
+  section.hero .hero-bg {
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    transform: none !important;
+  }
+}
+
+
