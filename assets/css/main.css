@@ -108,9 +108,9 @@ body {
   z-index: 2;
   display: grid;
   grid-template-columns: 120px 1fr;
-  gap: 20px;
+  gap: 2px;
   align-items: center;
-  padding: 36px 0;
+  padding: 6px 0;
   pointer-events: auto;
 }
 
@@ -141,6 +141,7 @@ body {
 /* ===== Avatar (hover) ===== */
 .hero .avatar {
   position: relative;
+  left: 5px;
   z-index: 20;
   pointer-events: auto;
   width: 200px;
@@ -148,7 +149,7 @@ body {
   border-radius: 999px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.06);
-  border: 3px solid rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.9);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   transform: translateZ(0);
@@ -916,7 +917,7 @@ body {
 
   /* Hero: меньше вертикальные отступы */
   .hero-inner {
-    padding: 26px 0;
+    padding: 2px 0;
     gap: 16px;
   }
 
@@ -1128,29 +1129,41 @@ body {
     height: 100px;
   }
 }
-/* ===== FORCE MOBILE HERO (250px + full image) ===== */
+/* ===== FORCE MOBILE HERO (250px + no extra spacing) ===== */
 @media (max-width: 520px) {
 
-  /* Home / Works / Contacts: всё, что похоже на hero */
+  /* Сам hero — строго по высоте картинки */
   section.hero,
   section.hero.hero--home,
   section.hero.hero--works,
   section.hero.hero--contacts {
-    height: 250px !important;
-    min-height: 250px !important;
-    max-height: 250px !important;
+    height: 170px !important;
+    min-height: 170px !important;
+    max-height: 170px !important;
+    padding: 0 !important;          /* ← УБРАЛИ вертикальные отступы */
+    border-bottom: none !important; /* ← УБРАЛИ линию */
     overflow: hidden !important;
+    align-items: stretch !important;
   }
 
-  /* если внутри есть padding/контент, он часто раздувает высоту */
+  /* Внутренний контейнер НЕ должен добавлять высоту */
   section.hero .hero-inner {
     height: 100% !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding: 0 !important;          /* ← КЛЮЧЕВО */
+    margin: 0 !important;
     align-items: center !important;
   }
 
-  /* картинка фона должна влезать целиком */
+  /* Контент без лишних margin */
+  section.hero .hero-title {
+    margin-top: 0 !important;
+  }
+
+  section.hero .hero-subtitle {
+    margin-bottom: 0 !important;
+  }
+
+  /* Фон */
   section.hero .hero-bg {
     background-size: contain !important;
     background-position: center !important;
@@ -1158,5 +1171,3 @@ body {
     transform: none !important;
   }
 }
-
-
