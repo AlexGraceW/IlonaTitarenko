@@ -141,7 +141,7 @@ body {
 /* ===== Avatar (hover) ===== */
 .hero .avatar {
   position: relative;
-  left: 5px;
+  left: 20px;
   z-index: 20;
   pointer-events: auto;
   width: 200px;
@@ -188,22 +188,6 @@ body {
   font-size: 18px;
   opacity: 0.85;
 }
-
-/* ===== Per-page hero overrides ===== 
-.hero--home {
-  --hero-min-height: 260px;
-  --hero-bg-position: center;
-}
-
-.hero--works {
-  --hero-min-height: 260px;
-  --hero-bg-position: 35% 75%;
-}
-
-.hero--contacts {
-  --hero-min-height: 260px;
-  --hero-bg-position: 35% 70%;
-}*/
 
 /* ===== Works/Contacts hero layout (NO avatar, left aligned) ===== */
 .hero-inner--works,
@@ -485,6 +469,14 @@ body {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.2px;
+}
+/* Testimonials spacing */
+.footer-quote {
+  margin-bottom: 14px; /* ← "пустая строка" под цитатой */
+}
+
+.footer-quote:last-child {
+  margin-bottom: 0; /* чтобы внизу карточки не было лишнего воздуха */
 }
 
 /* ===== Social list (icons + names from img) ===== */
@@ -929,16 +921,26 @@ body {
     font-size: 16px;
   }
 
-  /* Home hero: делаем 1 колонку, аватар сверху по центру */
-  .hero.hero--home .hero-inner {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-  }
+  /* Home hero (mobile): аватар слева, Title/Subtitle по центру */
+.hero.hero--home .hero-inner {
+  grid-template-columns: 110px 1fr; /* слева место под аватар, справа текст */
+  justify-items: stretch;
+  align-items: center;
+  text-align: left;
+}
 
-  .hero.hero--home .hero-left {
-    justify-self: center;
-  }
+.hero.hero--home .hero-left {
+  justify-self: start;
+  align-self: center;
+}
+
+.hero.hero--home .hero-right {
+  display: grid;
+  place-items: center;   /* центрируем текстовый блок */
+  text-align: center;    /* центрируем строки текста */
+  width: 100%;
+}
+
 
   /* Works/Contacts hero: оставляем 1 колонку (у тебя так и нужно) */
   .hero-inner--works,
@@ -949,6 +951,7 @@ body {
   .works-hero-content,
   .contact-hero-content {
     max-width: 100%;
+    padding-left: 24px;
   }
 
   /* Intro */
@@ -1171,3 +1174,85 @@ body {
     transform: none !important;
   }
 }
+/* ===== Home mobile: About -> Video, Sections: Text -> Carousel ===== */
+@media (max-width: 520px) {
+  /* Intro: сначала About, потом Video */
+  .intro-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .intro-grid .intro-about {
+    order: 1 !important;
+  }
+
+  .intro-grid .intro-video {
+    order: 2 !important;
+  }
+
+  /* Sections: сначала текст, под ним карусель */
+  .content-section-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+   .section-title {
+    text-align: center;
+  }
+
+  /* если текстовый блок — это первый div (обычно так), оставляем order:1 
+  .content-section-grid > :first-child {
+    order: 1 !important;
+  }*/
+
+  /* карусель всегда вниз */
+  .content-section-grid .carousel {
+    order: 2 !important;
+  }
+}
+/* ===== Mobile: force Intro video centered ===== */
+@media (max-width: 768px) {
+  .intro .intro-grid .intro-video .video-frame {
+    width: 100% !important;
+    max-width: 520px !important;   /* можно менять */
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* на всякий случай, чтобы родитель не мешал */
+  .intro .intro-grid .intro-video {
+    width: 100% !important;
+  }
+}
+/* ===== Mobile: Works & Contacts — Social icons only ===== */
+@media (max-width: 520px) {
+
+  /* 1. Убираем названия соцсетей */
+  .site-footer--works .footer-social-name-img {
+    display: none !important;
+  }
+
+  /* 2. Делаем одну строку */
+  .site-footer--works .footer-social-row {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  /* 3. Каждая иконка — компактная */
+  .site-footer--works .footer-social-row-item {
+    width: auto;
+    padding: 0;
+  }
+
+  /* 4. Размер иконок (можно менять) */
+  .site-footer--works .footer-social-icon-img {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+}
+

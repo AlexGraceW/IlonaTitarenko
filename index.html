@@ -26,7 +26,7 @@
 
     <main>
       <!-- Hero banner -->
-      <section class="hero">
+      <section class="hero hero--home">
         <div id="hero-bg" class="hero-bg" aria-hidden="true"></div>
 
         <div class="container hero-inner">
@@ -71,182 +71,182 @@
       </div>
     </main>
 
-    <hr class="divider divider-footer" />
-</div>
-</main>
+    <!-- divider перед footer -->
+    <hr class="divider divider--full" />
 
-<!-- index.html — ЗАМЕНИ ПОЛНОСТЬЮ текущий footer на этот -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-shell">
-      <!-- Top row -->
-      <div class="footer-top">
-        <div class="footer-top-left">
-          <div class="footer-badge" aria-hidden="true">VP</div>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-shell">
+          <!-- Top row -->
+          <div class="footer-top">
+            <div class="footer-top-left">
+              <div class="footer-badge" aria-hidden="true">VP</div>
 
-          <div class="footer-profile">
-            <div class="footer-profile-title">Director / Video Editor</div>
-            <div class="footer-profile-subtitle">
-              Story-first edits • Brand films • Documentaries
+              <div class="footer-profile">
+                <div class="footer-profile-title">Director / Video Editor</div>
+                <div class="footer-profile-subtitle">
+                  Story-first edits • Brand films • Documentaries
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-top-right">
+              <div class="footer-cta-title">Let’s work together</div>
+              <div class="footer-cta-text">
+                Available for remote projects and on-site productions in the US.
+              </div>
+              <div class="footer-cta-actions">
+                <a class="footer-cta-link" href="./contacts/">Get in touch</a>
+                <a class="footer-cta-link" href="mailto:hello@example.com">Email</a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="footer-top-right">
-          <div class="footer-cta-title">Let’s work together</div>
-          <div class="footer-cta-text">
-            Available for remote projects and on-site productions in the US.
+          <div class="footer-sep"></div>
+
+          <!-- Middle row -->
+          <div class="footer-mid">
+            <!-- Social -->
+            <section class="footer-card footer-social">
+              <h3 class="footer-card-title">Social</h3>
+
+              <div class="footer-social-list">
+                <a
+                  class="footer-social-item"
+                  href="https://instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    class="footer-social-icon-img"
+                    src="assets/img/social/instagram-icon.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="footer-social-name-img"
+                    src="assets/img/social/instagram-name.png"
+                    alt="Instagram"
+                  />
+                </a>
+
+                <a
+                  class="footer-social-item"
+                  href="https://vimeo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    class="footer-social-icon-img"
+                    src="assets/img/social/vimeo-icon.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="footer-social-name-img"
+                    src="assets/img/social/vimeo-name.png"
+                    alt="Vimeo"
+                  />
+                </a>
+
+                <a
+                  class="footer-social-item"
+                  href="https://youtube.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    class="footer-social-icon-img"
+                    src="assets/img/social/youtube-icon.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="footer-social-name-img"
+                    src="assets/img/social/youtube-name.png"
+                    alt="YouTube"
+                  />
+                </a>
+
+                <a
+                  class="footer-social-item"
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    class="footer-social-icon-img"
+                    src="assets/img/social/linkedin-icon.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="footer-social-name-img"
+                    src="assets/img/social/linkedin-name.png"
+                    alt="LinkedIn"
+                  />
+                </a>
+              </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="footer-card footer-testimonials">
+              <h3 class="footer-card-title">Testimonials</h3>
+
+              <div class="footer-quote">
+                <div class="footer-quote-text">
+                  “Fast, collaborative, and incredibly precise. The pacing and emotion were exactly
+                  right.”
+                </div>
+                <div class="footer-quote-by">— Producer, Brand Campaign</div>
+              </div>
+
+              <div class="footer-quote">
+                <div class="footer-quote-text">
+                  “She elevated our story with subtle details. Great taste, great communication.”
+                </div>
+                <div class="footer-quote-by">— Creative Director</div>
+              </div>
+
+              <div class="footer-quote">
+                <div class="footer-quote-text">
+                  “She elevated our story with subtle details. Great taste, great communication.”
+                </div>
+                <div class="footer-quote-by">— Creative Director</div>
+              </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="footer-card footer-skills">
+              <h3 class="footer-card-title">Skills</h3>
+              <ul class="footer-skill-list">
+                <li>Adobe Premiere Pro</li>
+                <li>Adobe After Effects</li>
+                <li>Adobe Audition</li>
+                <li>DaVinci Resolve</li>
+                <li>Adobe Media Encoder</li>
+                <li>Broadcast-ready video standards (TV, digital, social media)</li>
+              </ul>
+            </section>
           </div>
-          <div class="footer-cta-actions">
-            <a class="footer-cta-link" href="contacts/">Get in touch</a>
-            <a class="footer-cta-link" href="mailto:hello@example.com">Email</a>
+
+          <!-- Bottom -->
+          <div class="footer-bottom">
+            <div class="footer-contacts">
+              <span>Myrtle Beach, SC 29575 (available worldwide)</span>
+              <span class="footer-dot">•</span>
+              <span>+1 (213) 555-1234</span>
+              <span class="footer-dot">•</span>
+              <a class="footer-email" href="mailto:hello@example.com">hello@example.com</a>
+            </div>
+
+            <div class="footer-copy">© 2026 Portfolio</div>
           </div>
         </div>
       </div>
+    </footer>
 
-      <div class="footer-sep"></div>
-
-      <!-- Middle row -->
-      <div class="footer-mid">
-        <!-- Social -->
-        <section class="footer-card footer-social">
-          <h3 class="footer-card-title">Social</h3>
-
-          <div class="footer-social-list">
-  <a
-    class="footer-social-item"
-    href="https://instagram.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img
-      class="footer-social-icon-img"
-      src="assets/img/social/instagram-icon.png"
-      alt=""
-      aria-hidden="true"
-    />
-    <img
-      class="footer-social-name-img"
-      src="assets/img/social/instagram-name.png"
-      alt="Instagram"
-    />
-  </a>
-
-  <a
-    class="footer-social-item"
-    href="https://vimeo.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img
-      class="footer-social-icon-img"
-      src="assets/img/social/vimeo-icon.png"
-      alt=""
-      aria-hidden="true"
-    />
-    <img
-      class="footer-social-name-img"
-      src="assets/img/social/vimeo-name.png"
-      alt="Vimeo"
-    />
-  </a>
-
-  <a
-    class="footer-social-item"
-    href="https://youtube.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img
-      class="footer-social-icon-img"
-      src="assets/img/social/youtube-icon.png"
-      alt=""
-      aria-hidden="true"
-    />
-    <img
-      class="footer-social-name-img"
-      src="assets/img/social/youtube-name.png"
-      alt="YouTube"
-    />
-  </a>
-
-  <a
-    class="footer-social-item"
-    href="https://linkedin.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img
-      class="footer-social-icon-img"
-      src="assets/img/social/linkedin-icon.png"
-      alt=""
-      aria-hidden="true"
-    />
-    <img
-      class="footer-social-name-img"
-      src="assets/img/social/linkedin-name.png"
-      alt="LinkedIn"
-    />
-  </a>
-</div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="footer-card footer-testimonials">
-          <h3 class="footer-card-title">Testimonials</h3>
-
-          <div class="footer-quote">
-            <div class="footer-quote-text">
-              “Fast, collaborative, and incredibly precise. The pacing and emotion were exactly right.”
-            </div>
-            <div class="footer-quote-by">— Producer, Brand Campaign</div>
-          </div>
-
-          <div class="footer-quote">
-            <div class="footer-quote-text">
-              “She elevated our story with subtle details. Great taste, great communication.”
-            </div>
-            <div class="footer-quote-by">— Creative Director</div>
-          </div>
-
-        <div class="footer-quote">
-            <div class="footer-quote-text">
-              “She elevated our story with subtle details. Great taste, great communication.”
-            </div>
-            <div class="footer-quote-by">— Creative Director</div>
-          </div>
-        </section>
-
-        <!-- Skills -->
-        <section class="footer-card footer-skills">
-          <h3 class="footer-card-title">Skills</h3>
-          <ul class="footer-skill-list">
-            <li>Adobe Premiere Pro</li>
-            <li>Adobe After Effects</li>
-            <li>Adobe Audition</li>
-            <li>DaVinci Resolve</li>
-            <li>Adobe Media Encoder</li>
-            <li>Broadcast-ready video standards (TV, digital, social media)</li>
-          </ul>
-        </section>
-      </div>
-
-      <!-- Bottom -->
-      <div class="footer-bottom">
-        <div class="footer-contacts">
-          <span>Myrtle Beach, SC 29575 (available worldwide)</span>
-          <span class="footer-dot">•</span>
-          <span>+1 (213) 555-1234</span>
-          <span class="footer-dot">•</span>
-          <a class="footer-email" href="mailto:hello@example.com">hello@example.com</a>
-        </div>
-
-        <div class="footer-copy">© 2026 Portfolio</div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-    <script defer src="assets/js/index-content.js"></script>
+    <script defer src="assets/js/index-content.js?v=250"></script>
   </body>
 </html>
