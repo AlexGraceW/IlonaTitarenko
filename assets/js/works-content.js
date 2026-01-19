@@ -15,9 +15,7 @@
 
   async function load_json(path) {
     const response = await fetch(path, { cache: "no-cache" });
-    if (!response.ok) {
-      throw new Error(`Failed to load ${path}: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`Failed to load ${path}: ${response.status}`);
     return response.json();
   }
 
@@ -30,16 +28,41 @@
   function set_bg_image(id, url) {
     const el = document.getElementById(id);
     if (!el) return;
-    el.style.backgroundImage = url
-      ? `url('${String(url).replaceAll("'", "\\'")}')`
-      : "";
+    el.style.backgroundImage = url ? `url('${String(url).replaceAll("'", "\\'")}')` : "";
+  }
+
+  function with_autoplay(embedUrl) {
+    // добавим autoplay, не ломая существующие параметры
+    try {
+      const u = new URL(embedUrl);
+      u.searchParams.set("autoplay", "1");
+      u.searchParams.set("playsinline", "1");
+      u.searchParams.set("rel", "0");
+      return u.toString();
+    } catch {
+      // если вдруг пришло невалидное — просто вернём как есть
+      return embedUrl;
+    }
+  }
+
+  function resolve_url(maybeRelative) {
+    if (!maybeRelative) return "";
+    try {
+      return new URL(String(maybeRelative), document.baseURI).toString();
+    } catch {
+      return String(maybeRelative);
+    }
   }
 
   function render_card(item) {
     const title = item?.title ? String(item.title) : "New work";
     const subtitle = item?.subtitle ? String(item.subtitle) : "Short description...";
-    const embed_url = item?.embedUrl ? String(item.embedUrl) : "";
+    const embedUrl = item?.embedUrl ? String(item.embedUrl) : "";
+    const posterUrl = item?.posterUrl ? String(item.posterUrl) : "";
 
+    const posterResolved = resolve_url(posterUrl);
+
+    // data-embed нужен для клика -> iframe
     return `
       <article class="work-card">
         <div class="work-card-header">
@@ -48,35 +71,77 @@
         </div>
 
         <div class="work-card-media">
-          <iframe
-            src="${escape_html(embed_url)}"
-            title="${escape_html(title)}"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+          <button
+            class="video-preview"
+            type="button"
+            data-video-preview
+            data-embed="${escape_html(embedUrl)}"
+            aria-label="Play: ${escape_html(title)}"
+            style="background-image: url('${escape_html(posterResolved)}');"
+          >
+            <span class="video-preview__play" aria-hidden="true"></span>
+          </button>
         </div>
       </article>
     `;
   }
 
+  function mount_video_preview_handlers(scope) {
+  const buttons = scope.querySelectorAll("[data-video-preview]");
+  buttons.forEach((btn) => {
+    btn.addEventListener(
+      "click",
+      (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const embed = btn.getAttribute("data-embed") || "";
+        if (!embed) return;
+
+        const iframe = document.createElement("iframe");
+        iframe.src = with_autoplay(embed);
+        iframe.title = btn.getAttribute("aria-label") || "Video";
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute(
+          "allow",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        );
+        iframe.setAttribute("allowfullscreen", "");
+
+        // чтобы iframe 100% занял media-окно
+        iframe.className = "work-video-iframe";
+
+        // КЛЮЧ: заменяем саму кнопку, а не innerHTML родителя
+        btn.replaceWith(iframe);
+      },
+      { once: true }
+    );
+  });
+}
+
+
   function render_grid(root, videos) {
     if (!root) return;
+
     if (!Array.isArray(videos) || videos.length === 0) {
       root.innerHTML = "";
       return;
     }
+
     root.innerHTML = videos.map(render_card).join("");
+    mount_video_preview_handlers(root);
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
     try {
       const data = await load_json(CONTENT_URL);
 
+      // hero
       set_bg_image("works-hero-bg", data?.hero?.bgImage || "");
       set_text("works-hero-title", data?.hero?.title || "My Works");
       set_text("works-hero-subtitle", data?.hero?.subtitle || "Selected projects and edits");
 
+      // grid
       const grid = document.getElementById("works-grid");
       render_grid(grid, data?.videos || []);
     } catch (err) {

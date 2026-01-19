@@ -2,7 +2,7 @@
 (function init_index_content() {
   "use strict";
 
-  const CONTENT_URL = "assets/data/content.json?v=251";
+  const CONTENT_URL = "assets/data/content.json";
 
   function escape_html(value) {
     return String(value)
@@ -156,98 +156,35 @@
     update();
   }
 
-  // --- NEW: helper to add autoplay safely ---
-  function with_autoplay(url) {
-    try {
-      const u = new URL(url, window.location.href);
-      // autoplay after click is allowed by browsers
-      if (!u.searchParams.has("autoplay")) u.searchParams.set("autoplay", "1");
-      if (!u.searchParams.has("rel")) u.searchParams.set("rel", "0");
-      return u.toString();
-    } catch {
-      // fallback if URL is weird
-      const sep = url.includes("?") ? "&" : "?";
-      return url + `${sep}autoplay=1&rel=0`;
-    }
-  }
-
-  // --- NEW: custom preview -> iframe on click ---
   function mount_intro_video(slot_el, intro) {
     if (!slot_el) return;
 
-    const embed_url = intro?.videoEmbedUrl ? String(intro.videoEmbedUrl) : "";
-    const mp4_url = intro?.videoMp4Url ? String(intro.videoMp4Url) : "";
-    const poster_url = intro?.videoPosterUrl ? String(intro.videoPosterUrl) : "";
-    const title = intro?.videoTitle ? String(intro.videoTitle) : "Intro video";
+    if (intro && intro.videoEmbedUrl) {
+      const url = String(intro.videoEmbedUrl);
+      slot_el.innerHTML = `
+        <iframe
+          src="${escape_html(url)}"
+          title="${escape_html(intro.videoTitle || "Intro video")}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      `;
+      return;
+    }
 
-    // 1) If MP4 provided -> use <video> (poster supported)
-    if (mp4_url) {
+    if (intro && intro.videoMp4Url) {
+      const mp4 = String(intro.videoMp4Url);
+      const poster = intro.videoPosterUrl ? String(intro.videoPosterUrl) : "";
       slot_el.innerHTML = `
         <video
           controls
           playsinline
           preload="metadata"
-          ${poster_url ? `poster="${escape_html(poster_url)}"` : ""}
+          ${poster ? `poster="${escape_html(poster)}"` : ""}
         >
-          <source src="${escape_html(mp4_url)}" type="video/mp4" />
+          <source src="${escape_html(mp4)}" type="video/mp4" />
         </video>
-      `;
-      return;
-    }
-
-    // 2) If embed provided and poster provided -> show custom preview first
-    if (embed_url && poster_url) {
-      const safe_poster = escape_html(poster_url);
-      const safe_title = escape_html(title);
-
-      slot_el.innerHTML = `
-        <button
-          type="button"
-          class="video-preview"
-          data-video-embed="${escape_html(embed_url)}"
-          aria-label="Play video"
-          style="background-image:url('${safe_poster}')"
-        >
-          <span class="video-preview__overlay" aria-hidden="true"></span>
-          <span class="video-preview__play" aria-hidden="true"></span>
-          <span class="video-preview__title">${safe_title}</span>
-        </button>
-      `;
-
-      const btn = slot_el.querySelector(".video-preview");
-      if (btn) {
-        btn.addEventListener(
-          "click",
-          () => {
-            const url = btn.getAttribute("data-video-embed") || "";
-            const autoplay_url = with_autoplay(url);
-
-            slot_el.innerHTML = `
-              <iframe
-                src="${escape_html(autoplay_url)}"
-                title="${safe_title}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            `;
-          },
-          { once: true }
-        );
-      }
-      return;
-    }
-
-    // 3) If embed provided without poster -> fallback to iframe immediately
-    if (embed_url) {
-      slot_el.innerHTML = `
-        <iframe
-          src="${escape_html(embed_url)}"
-          title="${escape_html(title)}"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
       `;
       return;
     }
@@ -300,7 +237,12 @@
 
               <div class="content-carousel">
                 <div class="carousel" data-carousel>
-                  <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous">‹</button>
+                  <button
+                    class="carousel-btn"
+                    type="button"
+                    data-carousel-prev
+                    aria-label="Previous"
+                  >‹</button>
 
                   <div class="carousel-viewport" data-carousel-viewport>
                     <div class="carousel-track" data-carousel-track>
@@ -308,7 +250,12 @@
                     </div>
                   </div>
 
-                  <button class="carousel-btn" type="button" data-carousel-next aria-label="Next">›</button>
+                  <button
+                    class="carousel-btn"
+                    type="button"
+                    data-carousel-next
+                    aria-label="Next"
+                  >›</button>
 
                   <div class="carousel-dots" data-carousel-dots></div>
                 </div>
@@ -329,7 +276,7 @@
   async function render_page() {
     const data = await load_json(CONTENT_URL);
 
-    // Footer (если у тебя нет #footer-text — это не сломает страницу, просто не сработает)
+    // Footer
     set_text("#footer-text", data?.site?.footerText || "");
 
     // Hero
@@ -338,6 +285,7 @@
     set_text("#hero-title", data?.home?.hero?.title || "");
     set_text("#hero-subtitle", data?.home?.hero?.subtitle || "");
 
+    // If avatar path is wrong, hide alt text inside circle
     const avatar_img = document.querySelector("#hero-avatar");
     if (avatar_img) {
       avatar_img.addEventListener(

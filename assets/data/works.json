@@ -9,37 +9,43 @@
       "id": "w1",
       "title": "New work",
       "subtitle": "Short description...",
-      "embedUrl": "https://www.youtube.com/embed/kL2Maoidnls?si=CFIa_6fJqIr55jau"
+      "embedUrl": "https://www.youtube.com/embed/kL2Maoidnls?si=CFIa_6fJqIr55jau",
+      "posterUrl": "../assets/img/works/work1.jpg"
     },
     {
       "id": "w2",
       "title": "New work",
       "subtitle": "Short description...",
-      "embedUrl": "https://www.youtube.com/embed/uTHG6VWdLGw?si=QxspP6yUtReHEveH"
+      "embedUrl": "https://www.youtube.com/embed/uTHG6VWdLGw?si=QxspP6yUtReHEveH",
+      "posterUrl": "../assets/img/works/work2.jpg"
     },
     {
       "id": "w3",
       "title": "New work",
       "subtitle": "Short description...",
-      "embedUrl": "https://www.youtube.com/embed/ZP_Uj2qmqj4?si=sG2cOTQwexjNOBLe"
+      "embedUrl": "https://www.youtube.com/embed/ZP_Uj2qmqj4?si=sG2cOTQwexjNOBLe",
+      "posterUrl": "../assets/img/works/work3.jpg"
     },
     {
       "id": "w4",
       "title": "New work",
       "subtitle": "Short description...",
-      "embedUrl": "https://www.youtube.com/embed/DhhbwSqGnc0?si=sSLMMNP4QT4Xupiy"
+      "embedUrl": "https://www.youtube.com/embed/DhhbwSqGnc0?si=sSLMMNP4QT4Xupiy",
+      "posterUrl": "../assets/img/works/work4.jpg"
     },
     {
       "id": "w5",
       "title": "New work",
       "subtitle": "Short description...",
-      "embedUrl": "https://www.youtube.com/embed/vIyLGkrigxs?si=5DAutXUdn5tYWz3k"
+      "embedUrl": "https://www.youtube.com/embed/vIyLGkrigxs?si=5DAutXUdn5tYWz3k",
+      "posterUrl": "../assets/img/works/work5.jpg"
     },
     {
       "id": "w6",
       "title": "New work",
       "subtitle": "Short description...",
-      "embedUrl": "https://www.youtube.com/embed/Rfwf7Kznquk?si=hX65jlRKBi_C_ZVO"
+      "embedUrl": "https://www.youtube.com/embed/Rfwf7Kznquk?si=hX65jlRKBi_C_ZVO",
+      "posterUrl": "../assets/img/works/work6.jpg"
     }
   ]
 }

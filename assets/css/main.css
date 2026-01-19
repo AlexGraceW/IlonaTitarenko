@@ -649,6 +649,39 @@ body {
   display: block;
   border: 0;
 }
+/* ===== Works: iframe interaction fix (MOBILE) ===== */
+
+.work-card-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.work-card-media * {
+  pointer-events: auto;
+}
+
+.work-card-media::before,
+.work-card-media::after {
+  content: none !important;
+}
+
+/* iframe всегда сверху */
+.work-card-media iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  z-index: 3;
+}
+
+/* play-иконка превью никогда не ловит клики */
+.video-preview__play,
+.video-preview__play::before,
+.video-preview__play::after {
+  pointer-events: none !important;
+}
 
 /* ===== Footer variant for Works ===== */
 .site-footer--works {
@@ -1255,4 +1288,123 @@ body {
     padding: 6px;
   }
 }
+/* Custom video preview (no YouTube UI until click) */
+.video-preview {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+.video-preview__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.15));
+}
+
+.video-preview__play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 74px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255,0,0,0.9);
+}
+
+.video-preview__play::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 18px solid #fff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.video-preview__title {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  right: 14px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: left;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+}
+/* Works: custom preview without YouTube UI */
+.video-preview {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.video-preview-bg {
+  position: absolute;
+  inset: 0;
+  background-size: contain;      /* ← КЛЮЧЕВО */
+  background-position: center;
+  background-repeat: no-repeat;  /* ← обязательно */
+  background-color: #000;        /* чтобы пустоты были аккуратные */
+  border-radius: inherit;
+}
+
+.video-preview-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.video-preview-play::before {
+  content: "";
+  width: 50px;
+  height: 30px;
+  border-radius: 14px;
+  background: rgba(230, 33, 23, 0.95);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+}
+
+.video-preview-play::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 16px solid rgba(255,255,255,0.95);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  margin-left: 6px;
+}
+/* Works: preview fit полностью на кнопке */
+.video-preview {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  background-size: contain !important;       /* <-- целиком */
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: #000;                   /* “поля” */
+  border-radius: inherit;                   /* чтобы совпало с окном */
+}
