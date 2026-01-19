@@ -35,9 +35,15 @@
     // добавим autoplay, не ломая существующие параметры
     try {
       const u = new URL(embedUrl);
+
+      // лучше убрать лишние параметры типа si (не обязательны)
+      u.searchParams.delete("si");
+
       u.searchParams.set("autoplay", "1");
       u.searchParams.set("playsinline", "1");
       u.searchParams.set("rel", "0");
+      u.searchParams.set("modestbranding", "1");
+      
       return u.toString();
     } catch {
       // если вдруг пришло невалидное — просто вернём как есть
